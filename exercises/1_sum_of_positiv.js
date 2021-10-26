@@ -2,33 +2,34 @@
 // Example [1,-4,7,12] => 1 + 7 + 12 = 20
 // Note: if there is nothing to sum, the sum is default to 0.
 
-// const positiveSum = arr => {
+// yourArray.filter(element => condition)
 
-//     let temp = 0;
-//     arr.forEach(number => {
-//         if (number > 0) temp = temp + number;
-//     })
-
-//     return temp;
-// }
-
-// const filterArray = arr.filter(element => condition)
-
+// [1,-4,7,12]
 const positiveSum = arr => {
-    let temp = 0;
 
-    const positiveNumber = arr.filter(number => number > 0)
-                              .forEach(number => {
-                                 if (number > 0) temp = temp + number;
-                              });
+    // const positives = arr.filter(number => number > 0);
+    // console.log("positives", positives) // return arr filter by number > 0
 
-    return temp;
+    // let count = 0;
 
+    // const forEachResult = positives.forEach( positive => count += positive);
+    // console.log("forEach", forEachResult)
+
+    // const mapResult = positives.map( positive => positive * 2);
+    // console.log("mapResult", mapResult)
+
+    const totalPositiv = arr.reduce((total, currentNumber) => {
+        if (currentNumber > 0) {
+            return total + currentNumber
+        } else {
+            return total
+        }
+    }, 0)
+
+    return totalPositiv;
 }
 
 module.exports = positiveSum
 
 
-// forEach => iteration sans retour
-// map => iteration sur chaque element du tableau avec un tableau en retour
-// filter => iteration sur le tableau et creation du tableau avec uniquement certain element
+//
